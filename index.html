@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>记事本</title>
+		<link type="text/css" href="css/mystyle.css" rel="stylesheet"/>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="bg">
+			<h1>记事本</h1>
+			<ul class="content" id="jsb">
+				<div class="header">
+					<input v-model="inputValue" @keyup.enter="add()" type="text" value="好好学习" />
+					<span class="del" @click="remove()" v-show="inputValue.length!=0">×</span>
+					<div class="add" @click="add()">添加</div>
+				</div>
+				<li v-for="(item,index) in list">
+					<span> {{index+1}}. </span>
+					<span class="text"> {{item}}</span>
+					<span class="remove" @click="del(index)">×</span>
+				</li>
+				<div class="footer" >
+					<div class="one">
+						<span class="left" v-show="list.length!=0">{{list.length}}&nbsp;items</span>
+						<span class="right" @click="clear()" v-show="list.length!=0">Clear</span>
+					</div>
+					<div class="two"></div>
+					<div class="three"></div>
+				</div>
+			</ul>
+		</div>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+		<script type="text/javascript" src="js/myjs.js"></script>
+<!-- 		<script>
+			var app = new Vue({
+				el:"#jsb",
+				data:{
+					list:["吃饭饭","睡觉觉","写代码"]
+				}
+			})
+		</script> -->
+	</body>
+</html>

@@ -1,0 +1,25 @@
+var app = new Vue({
+	el:"#jsb",
+	data:{
+		list:["吃饭饭","睡觉觉","写代码"],
+		inputValue:"天天向上"
+	},
+	methods:{
+		add:function(){
+			if(this.inputValue.length!=0){
+				this.list.push(this.inputValue);
+			}else{
+				alert("请输入内容！");
+			}
+		},
+		del:function(index){
+			this.list.splice(index,1);
+		},
+		clear:function(){
+			this.list=[];
+		},
+		remove:function(){
+			this.inputValue="";
+		}
+	}
+})
